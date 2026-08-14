@@ -49,6 +49,7 @@ type reviewOptions struct {
 	maxTokensBudget int
 	noFilter        bool
 	preview         bool
+	summary         bool
 }
 
 var reviewOpts reviewOptions
@@ -227,6 +228,7 @@ func executeReviewContext(ctx context.Context, opts reviewOptions) error {
 		SealedInput:           sealedInput,
 		MaxTokensBudget:       int64(opts.maxTokensBudget),
 		SkipFilter:            opts.noFilter,
+		SummaryEnabled:        opts.summary,
 		RuntimeConfig:         rt.RuntimeConfig,
 	})
 
